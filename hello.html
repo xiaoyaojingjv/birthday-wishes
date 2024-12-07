@@ -6,9 +6,21 @@
     <title>跳转到应用商店</title>
     <script>
         // 判断设备是 Android 还是 iOS
-                // 如果是 Android 设备，跳转到默认的应用商店
-                window.location.href = "intent://details?id=com.miHoYo.GenshinImpact#Intent;scheme=market;package=com.android.vending;end";
+        function redirectToStore() {
+            var userAgent = navigator.userAgent.toLowerCase();
 
+            // 判断是否为 Android 设备
+            if (/android/.test(userAgent)) {
+                // Android 设备跳转到默认应用商店
+                window.location.href = "intent://details?id=com.miHoYo.GenshinImpact#Intent;scheme=market;package=com.android.vending;end";
+            } else if (/iphone|ipod|ipad/.test(userAgent)) {
+                // iOS 设备跳转到 App Store
+                window.location.href = "itms-apps://itunes.apple.com/cn/app/id1517780242";
+            } else {
+                // 其他设备跳转到原神官网
+                window.location.href = "https://genshin.hoyoverse.com/";
+            }
+        }
 
         // 页面加载时执行跳转
         window.onload = redirectToStore;
