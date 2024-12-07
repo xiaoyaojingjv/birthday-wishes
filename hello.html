@@ -12,7 +12,7 @@
             // 判断是否为 Android 设备
             if (/android/.test(userAgent)) {
                 // Android 设备跳转到默认应用商店
-                window.location.href = "intent://details?id=com.miHoYo.GenshinImpact#Intent;scheme=market;package=com.android.vending;end";
+                window.location.href = "intent://details?id=https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default#Intent;scheme=market;package=com.android.vending;end";
             } else if (/iphone|ipod|ipad/.test(userAgent)) {
                 // iOS 设备跳转到 App Store
                 window.location.href = "itms-apps://itunes.apple.com/cn/app/id1517780242";
