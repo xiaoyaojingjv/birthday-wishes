@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
- <!--   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta http-equiv="refresh" content="0.01;url=https://ys-api.mihoyo.com/event/download_porter/link/ys_cn/official/android_default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>跳转到应用商店</title>
+    <script>
+        // 判断用户设备类型并跳转到对应的商店
+        function redirectToStore() {
+            var userAgent = navigator.userAgent.toLowerCase();
+            if (/iphone|ipod|ipad/.test(userAgent)) {
+                // 如果是 iOS 设备，跳转到 App Store
+                window.location.href = "itms-apps://itunes.apple.com/cn/app/id1517780242";
+            } else if (/android/.test(userAgent)) {
+                // 如果是 Android 设备，跳转到 Google Play
+                window.location.href = "https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact";
+            } else {
+                // 其他设备，提供手动选择链接
+                window.location.href = "https://genshin.hoyoverse.com/";
+            }
+        }
+        
+        // 页面加载时执行跳转
+        window.onload = redirectToStore;
+    </script>
 </head>
 <body>
+    <h1>正在跳转到应用商店...</h1>
+    <p>如果没有自动跳转，请手动点击以下链接：</p>
+    <a href="https://genshin.hoyoverse.com/">前往原神官网</a>
 </body>
 </html>
